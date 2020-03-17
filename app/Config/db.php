@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Config;
+
 use PDO;
+
 class Database
 {
     private static $bdd = null;

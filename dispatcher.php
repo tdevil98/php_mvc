@@ -1,5 +1,6 @@
 <?php
 
+
 class Dispatcher
 {
 
@@ -18,9 +19,8 @@ class Dispatcher
 
     public function loadController()
     {
-        $name = $this->request->controller . "Controller";
-        $file = ROOT . 'app/Controllers/' . $name . '.php';
-        // require(ROOT . 'app/Controllers/tasksController.php');
+        $name = "app\Controllers\\".$this->request->controller . "Controller";
+        $file = ROOT  . $name . '.php';
         require($file);
         $controller = new $name();
         return $controller;

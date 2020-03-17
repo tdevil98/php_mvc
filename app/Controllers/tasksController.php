@@ -4,12 +4,11 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Models\Task;
-
-class tasksController extends Controller
+require "../vendor/autoload.php";
+class TasksController extends Controller
 {
     function index()
     {
-        // require(ROOT . 'app/Models/Task.php');
 
         $tasks = new Task();
 
@@ -22,7 +21,6 @@ class tasksController extends Controller
     {
         if (isset($_POST["title"]))
         {
-            // require(ROOT . 'app/Models/Task.php');
 
             $task= new Task();
 
@@ -37,7 +35,6 @@ class tasksController extends Controller
 
     function edit($id)
     {
-        // require(ROOT . 'app/Models/Task.php');
         $task= new Task();
 
         $d["task"] = $task->showTask($id);
@@ -55,7 +52,6 @@ class tasksController extends Controller
 
     function delete($id)
     {
-        // require(ROOT . 'app/Models/Task.php');
 
         $task = new Task();
         if ($task->delete($id))

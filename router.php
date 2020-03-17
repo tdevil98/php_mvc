@@ -9,7 +9,7 @@ class Router
 
         if ($url == "/mvc/")
         {
-            $request->controller = "tasks";
+            $request->controller = "Tasks";
             $request->action = "index";
             $request->params = [];
         }
