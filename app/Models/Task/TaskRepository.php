@@ -3,11 +3,11 @@
 
     use App\Models\Task\TaskResourceModel;
 
-    class TaskRepository{
+    class TaskRepository {
 
-        public $resourceModel;
+        private $resourceModel;
 
-        public function _construct()
+        public function __construct()
         {
             $this->resourceModel = new TaskResourceModel();
         }
@@ -21,15 +21,12 @@
         }
 
         public function getAll() {
-            return $this->resourceModel->getAll();
+            return $this->resourceModel->showAllTasks();
         }
 
-        public function get($id) {
-            return $this->resourceModel->get($id);
-        }
 
-        public function update($model, $id) {
-            return $this->resourceModel->update($model, $id);
+        public function update($id, $model) {
+            return $this->resourceModel->edit($id, $model);
         }
 
         public function delete($id) {

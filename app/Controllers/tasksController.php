@@ -11,7 +11,7 @@ class TasksController extends Controller
 {
     private $taskRepository;
 
-    public function _construct()
+    public function __construct()
     {
         $this->taskRepository = new TaskRepository();
     }
@@ -28,10 +28,9 @@ class TasksController extends Controller
     {
         if (isset($_POST["title"]))
         {
-
-            if ($this->taskRepository->create($_POST["title"], $_POST["description"]))
+            if ($this->taskRepository->add($_POST))
             {
-                header("Location: " . WEBROOT . "tasks/index");
+                header("Location: " . WEBROOT . "/tasks/index");
             }
         }
 
@@ -45,9 +44,9 @@ class TasksController extends Controller
 
         if (isset($_POST["title"]))
         {
-            if ($this->taskRepository->edit($id, $_POST["title"], $_POST["description"]))
+            if ($this->taskRepository->update($id, $_POST))
             {
-                header("Location: " . WEBROOT . "tasks/index");
+                header("Location: " . WEBROOT . "/tasks/index");
             }
         }
         $this->set($d);
@@ -59,7 +58,7 @@ class TasksController extends Controller
 
         if ($this->taskRepository->delete($id))
         {
-            header("Location: " . WEBROOT . "tasks/index");
+            header("Location: " . WEBROOT . "/tasks/index");
         }
     }
 }

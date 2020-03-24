@@ -29,8 +29,5 @@ class TaskModel extends Model
             $this->description = $description;
         }
     }
-
-
-
 }
 ?>
